@@ -1,0 +1,33 @@
+*{
+    /* reset css */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: pink;
+}
+/*
+Box Model::after
+    margin
+    padding
+    border
+    content
+
+
+    box-sizing: content-box;
+*/
+.caixa{
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 21px;
+    margin-right: 22px;
+    margin-left: 23px;
+    border: 2px solid black;
+}

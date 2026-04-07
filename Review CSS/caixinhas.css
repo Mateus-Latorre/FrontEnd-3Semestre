@@ -1,0 +1,30 @@
+*{
+    /*Reset CSS*/
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightskyblue;
+}
+.sessao-noticias{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 920px;
+    border: 1px solid black;
+    padding: 1px;
+    gap: 20px;
+}
+.noticia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+    color: purple;
+}
