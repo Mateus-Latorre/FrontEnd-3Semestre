@@ -51,7 +51,7 @@
                     <label class="form-contact__label" for="endereco">Endereço</label>
                 </div>
                 <div class="form-contact__col-b">
-                    <input class="form-contact__input form-contact__input--quarto" type="text" id="cep" name="endereco" placeholder="cep: 00000-000">
+                    <input class="form-contact__input form-contact__input--quarto" type="text" id="cep" name="endereco" placeholder="cep: 00000-000" maxlength="8" onblur="buscarEndereco(this.value)">
                     <input class="form-contact__input form-contact__input--metade" type="text" id="rua" name="endereco" placeholder="Rua: Exemplo">
                     <input class="form-contact__input form-contact__input--quarto" type="text" id="numero" name="endereco" placeholder="número: 0000">
                 </div>
@@ -73,12 +73,12 @@
                     <label class="form-contact__label" for="anotacoes">Anotações</label>
                 </div>
                 <div class="form-contact__col-b">
-                    <textarea class="form-contact__input form-contact__textarea" type="text" id="anotacoes" name="anotacoes" placeholder="Suas anotações aqui"></textarea>
+                    <textarea class="form-contact__input form-contact__textarea" id="anotacoes" name="anotacoes" placeholder="Suas anotações aqui"></textarea>
                 </div>
             </div>
             <div class="form-contact__linha--button">
                 <div class="form-contact__col-b">
-                    <button onclick="validarFormulario()" class="form-contact__button" type="submit">Cadastrar</button>
+                    <button onclick="validarFormulario()" class="form-contact__button" type="button">Cadastrar</button>
                 </div>
                 <div class="form-contact__col-b">
                     <button class="form-contact__button" type="reset">Limpar</button>

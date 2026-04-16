@@ -1,0 +1,89 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contatos": [
+    {
+      "id": "1",
+      "nome": "Barney",
+      "sobrenome": "Latorre"
+    },
+    {
+      "id": "2",
+      "nome": "Ted",
+      "sobrenome": "Mosby"
+    },
+    {
+      "nome": "Bruno",
+      "sobrenome": "Rodrigues",
+      "id": "r3qwnxtqnn4"
+    },
+    {
+      "nome": "João",
+      "sobrenome": "Vitor",
+      "id": "1U-IaiWSSL0"
+    },
+    {
+      "nome": "Maria",
+      "sobrenome": "Freitas",
+      "id": "wwqyI19JKjk"
+    },
+    {
+      "nome": "Stephani",
+      "sobrenome": "Dandara",
+      "id": "p9fiEXQTEOQ"
+    },
+    {
+      "nome": "Francisco",
+      "sobrenome": "Hugo",
+      "id": "N7e2fsKbKS8"
+    },
+    {
+      "nome": "Mateus",
+      "sobrenome": "Latorre",
+      "id": "CIt4qPa8PLw"
+    },
+    {
+      "nome": "Mateus",
+      "sobrenome": "Latorre",
+      "email": "mateuslatorre220@gmail.com",
+      "pais": "55",
+      "ddd": "11",
+      "telefone": "946221076",
+      "cep": "04244000",
+      "rua": "Estrada das Lágrimas",
+      "numero": "3621",
+      "apto": "Bloco 11 Apto 34",
+      "bairro": "São João Clímaco",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "anotacoes": "Não tenho anotações",
+      "id": "J2v32ZoukIQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
