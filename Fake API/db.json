@@ -107,5 +107,28 @@
       "id": "6acoFZ5OG_U"
     }
   ],
+  "calculadora": [
+    {
+      "n1": 34,
+      "n2": 36,
+      "op": "soma",
+      "resultado": "70.00",
+      "id": "VPBBJhWCjeY"
+    },
+    {
+      "n1": 6,
+      "n2": 9,
+      "op": "soma",
+      "resultado": "15.00",
+      "id": "5oU7F_doq54"
+    },
+    {
+      "n1": 100000,
+      "n2": 10,
+      "op": "divisao",
+      "resultado": "10000.00",
+      "id": "qa0FdVJV8fQ"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
