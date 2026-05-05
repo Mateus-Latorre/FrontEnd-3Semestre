@@ -87,7 +87,7 @@ function mostrarNaTela(Calc){
             <span><strong>Segundo Número:</strong> ${Calc.n2}</span>
             <span><strong>Operação:</strong> ${Calc.op}</span>
             <span><strong>Resultado:</strong> ${Calc.resultado}</span>
-    </article>
+    </article> 
     `
 }
 async function cadastrarNaApi(objCadastro){

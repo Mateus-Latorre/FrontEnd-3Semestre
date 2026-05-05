@@ -128,6 +128,20 @@
       "op": "divisao",
       "resultado": "10000.00",
       "id": "qa0FdVJV8fQ"
+    },
+    {
+      "n1": 3,
+      "n2": 7,
+      "op": "multiplicacao",
+      "resultado": "21.00",
+      "id": "ssuoNSJC_Kk"
+    },
+    {
+      "n1": 456734,
+      "n2": 54,
+      "op": "divisao",
+      "resultado": "8458.04",
+      "id": "0YTYRQwbbX4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
