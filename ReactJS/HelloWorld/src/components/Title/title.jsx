@@ -1,7 +1,12 @@
-function Title({textoTitulo}) {
+function Title({nome, sobrenome, texto}) {
   return (
     <>
-      <h1>{textoTitulo}</h1>
+      <h1>{texto}
+        <br />
+        {nome}
+        <br />
+        {sobrenome}
+      </h1>
     </>
   );
 }
