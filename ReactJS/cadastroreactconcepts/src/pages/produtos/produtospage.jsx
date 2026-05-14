@@ -47,9 +47,6 @@ const Produtos = () => {
     const deletar = async (id) => {
         const retornoAPI = await fetch(`http://localhost:3000/produtos/${id}`, {
             method: "DELETE",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
         });
         const produtoCadastrado = await retornoAPI.json();
         setListaProdutos(listaProdutos.filter(produto => produto.id !== id));
