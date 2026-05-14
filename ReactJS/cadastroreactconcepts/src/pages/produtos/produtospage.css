@@ -1,0 +1,12 @@
+.produtos {
+    background-image: linear-gradient(to bottom, #8057ef, #3f00ff);
+    background-repeat: no-repeat;
+}
+.texto-produto {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+}
