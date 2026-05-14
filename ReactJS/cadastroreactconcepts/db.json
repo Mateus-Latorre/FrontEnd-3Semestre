@@ -1,13 +1,25 @@
 {
-    "frutas": [{
-        "id": 1,
-        "nome": "Abacaxi",
-        "quantidade": 10
-    },
-    {
-        "id": 2,
-        "nome": "Banana",
-        "quantidade": 20
-    }
-]
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Bomba",
+            "descricao": "Bomba legal",
+            "preco": 67.67,
+            "imagem": "/hero.png"
+        },
+        {
+            "id": 2,
+            "nome": "Bomba",
+            "descricao": "Bomba legal",
+            "preco": 67.67,
+            "imagem": "/hero.png"
+        },
+        {
+            "id": 3,
+            "nome": "Bomba",
+            "descricao": "Bomba legal",
+            "preco": 67.67,
+            "imagem": "/hero.png"
+        }
+    ]
 }
