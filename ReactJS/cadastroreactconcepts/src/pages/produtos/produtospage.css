@@ -115,3 +115,13 @@
     background-color: #7c4dff;
     color: rgb(0, 0, 0);
 }
+.btn_editar{
+    cursor: pointer;
+    height: 30px;
+    width: 90%;
+    border-radius: 5px;
+    border: black solid 2px;
+    margin: 10px 0% 10px 0%;
+    background-color: #7c4dff;
+    color: rgb(0, 0, 0);
+}
