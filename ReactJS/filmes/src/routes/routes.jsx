@@ -5,14 +5,7 @@ import Login from "../pages/login/Login";
 
 const Rotas = () => {
   return (
-    <BrowserRouter>
-      
-        <nav>
-        <Link to="/">Login</Link>
-        <Link to="/filme">Filmes</Link>
-        <Link to="/genero">Gêneros</Link>
-      </nav>
-      
+    <BrowserRouter>      
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/filme" element={<CadastroFilme />} />

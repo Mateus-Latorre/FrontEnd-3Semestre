@@ -44,7 +44,11 @@ const Lista = (props) => {
                                             {props.tipoLista === "filme" ? (item.genero?.nome || '-') : '-'}
                                         </td>
                                         <td data-cell="Editar">
-                                            <button className="icon" onClick={() => (props.funcEditar(item))}>
+                                            <button className="icon" onClick={() => {
+                                                props.setValor(valor)
+                                                setEditar(true)
+                                            }
+                                            }>
                                                 <img src={Editar} alt="Caneta" />
                                             </button>
                                         </td>
@@ -54,16 +58,16 @@ const Lista = (props) => {
                                             </button>
                                         </td>
                                     </tr>
-                                )) 
+                                ))
                             ) : (
-                                    // Caso a lista esteja vazia ou não exista, mostra uma linha dizendo que não há registros
-                                    <tr>
-                                        <td>Nenhum registro encontrado.</td>
-                                    </tr>
-                                )
+                                // Caso a lista esteja vazia ou não exista, mostra uma linha dizendo que não há registros
+                                <tr>
+                                    <td>Nenhum registro encontrado.</td>
+                                </tr>
+                            )
                             }
-                                
-                        
+
+
                         </tbody>
                     </table>
                 </div>
