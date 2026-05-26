@@ -3,95 +3,164 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Cadastro from "../../components/cadastro/Cadastro"
 import Lista from "../../components/lista/Lista"
-import { useEffect, useState } from "react";   
+import { useEffect, useState } from "react";
 import api from "/src/services/services";
+//import Swal from 'sweetalert2' 
+import {Alerta} from "../../components/alerta/Alerta"
+
 
 const CadastroGenero = () => {
 
     //states e variáveis
-    const [valor, setValor] = useState("") 
+    const [valor, setValor] = useState("")
     const [listaGeneros, setListaGeneros] = useState([
     ])
     const [editar, setEditar] = useState(false)
+    const [idEditar, setIdEditar] = useState(null)
     //ciclo de vida e funções 
 
     //POST
-   const cadastrarGenero = async (e) => {
-    e.preventDefault();
+    const cadastrarGenero = async (e) => {
+        e.preventDefault();
 
-    if (valor.trim().length === 0) {
-        alert("Preencha o campo de Gênero");
+        if (valor.trim().length === 0) {
+            Alerta({
+                title: 'Atenção',
+                text: 'O nome do gênero não pode estar em branco.',
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+            })
+            return;
+        }
+
+        const objCadastro = {
+            Nome: valor
+        };
+
+        try {
+            const retornoAPI = await api.post("/Genero", objCadastro);
+            limparFormulario();
+            getGeneros();
+            Alerta({
+                title: 'Cadastro realizado com sucesso!',
+                text: 'O gênero foi cadastrado com sucesso!',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                });
+
+        } catch (error) {
+            console.log("STATUS:", error.response?.status);
+            console.log("DATA:", error.response?.data);
+            console.log("ERRO COMPLETO:", error);
+            Alerta({
+                title: 'Erro na chamada da API',
+                text: 'Verifique os dados e tente novamente!',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                });
+    }};
+    const limparFormulario = () => {
+        setValor("");
+        setEditar(false);
+        setIdEditar(null);
+    };
+
+const excluirGenero = async (item) => {
+
+    const result = await Alerta({
+        title: 'Excluir Gênero',
+        text: `Tem certeza que deseja excluir o gênero ${item.nome}?`,
+        icon: 'warning',
+        confirmButtonText: 'Sim',
+        cancelButtonText: 'Não',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        });
+    if (!result.isConfirmed) {
         return;
     }
 
-    const objCadastro = {
-        Nome: valor
-    };
-
     try {
-        const retornoAPI = await api.post("/Genero", objCadastro);
-        limparFormulario();
+
+        await api.delete(`/Genero/${item.idGenero}`);
+
         getGeneros();
+        limparFormulario();
+
+        Alerta({
+            title: 'Excluído!',
+            text: `O gênero ${item.nome} foi excluído com sucesso!`,
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            });
 
     } catch (error) {
-    console.log("STATUS:", error.response?.status);
-    console.log("DATA:", error.response?.data);
-    console.log("ERRO COMPLETO:", error);
 
-    alert("Erro na chamada da API");
-}
-};
-const limparFormulario = () => {
-    setValor("");
-};
-
-const excluirGenero = async (item) => {
-     try {
-         const retornoAPI = await api.delete(`/Genero/${item.idGenero}`);
-         getGeneros();
-         limparFormulario();
-} catch (error) {
-         console.log("STATUS:", error.response?.status);
-         console.log("DATA:", error.response?.data);
-         console.log("ERRO COMPLETO:", error);
-         alert("Erro na chamada da API");
-     }
-};
-
-const editarGenero = async (id) => {
-    alert("Editando Gênero...");
-    // try {
-    //     const retornoAPI = await api.put(`/Genero/${id}`);
-    //     if (retornoAPI.status === 200) {
-    //         alert("Cadastro editado com sucesso!");
-    //         limparFormulario();
-    //     } else {
-    //         alert("Erro ao editar o Gênero");
-    //     }
-    // } catch (error) {
-    //     console.log("STATUS:", error.response?.status);
-    //     console.log("DATA:", error.response?.data);
-    //     console.log("ERRO COMPLETO:", error);
-    //     alert("Erro na chamada da API");
-    // }
-};
-
-useEffect(() => {
-    getGeneros();
-}, [])
-
-const getGeneros = async () => {
-    try {
-        const retornoAPI = await api.get("/Genero");
-        const dados = retornoAPI.data;
-        setListaGeneros(dados);
-    } catch (error) {
         console.log("STATUS:", error.response?.status);
         console.log("DATA:", error.response?.data);
         console.log("ERRO COMPLETO:", error);
-        alert("Erro na chamada da API");
+
+        Alerta({
+            title: 'Erro',
+            text: 'Erro ao excluir gênero!',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            });
     }
 };
+
+    const preEditar = (item) => {
+        setValor(item.nome);
+        setIdEditar(item.idGenero);
+        setEditar(true);
+        console.log(item);
+    };
+
+    const editarGenero = async (e) => {
+        setEditar(false);
+        e.preventDefault();
+        const objCadastro = {
+            idGenero: idEditar,
+            nome: valor
+        };
+        try {
+            const retornoAPI = await api.put(`/Genero/${idEditar}`, objCadastro);
+            limparFormulario();
+            getGeneros();
+        } catch (error) {
+            console.log("STATUS:", error.response?.status);
+            console.log("DATA:", error.response?.data);
+            console.log("ERRO COMPLETO:", error);
+            Alerta({
+                title: 'Erro na chamada da API',
+                text: 'Verifique os dados e tente novamente!',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                });
+        }
+    }
+    useEffect(() => {
+        getGeneros();
+    }, [])
+
+    const getGeneros = async () => {
+        try {
+            const retornoAPI = await api.get("/Genero");
+            const dados = retornoAPI.data;
+            setListaGeneros(dados);
+        } catch (error) {
+            console.log("STATUS:", error.response?.status);
+            console.log("DATA:", error.response?.data);
+            console.log("ERRO COMPLETO:", error);
+            Alerta({
+                title: 'Erro na chamada da API',
+                text: 'Verifique os dados e tente novamente!',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                });
+        }
+    };
     //o jsx
     return (
         <>
@@ -106,17 +175,19 @@ const getGeneros = async () => {
                     //função que muda o state
                     setValor={setValor}
                     funcCadastro={editar ? editarGenero : cadastrarGenero}
+                    btnEditar={editar}
+                    cancelarEdicao={limparFormulario}
                 />
-                <Lista 
-                tituloLista="Lista de Gêneros"
-                visibilidade="none"
-                tipoLista="genero"
-                lista={listaGeneros}
-                setEditar={setEditar}
-                setValor={setValor}
-                valor={valor}
-                funcEditar={editarGenero}
-                funcExcluir={excluirGenero}
+                <Lista
+                    tituloLista="Lista de Gêneros"
+                    visibilidade="none"
+                    tipoLista="genero"
+                    lista={listaGeneros}
+                    setEditar={setEditar}
+                    setValor={setValor}
+                    valor={valor}
+                    funcEditar={preEditar}
+                    funcExcluir={excluirGenero}
                 />
             </main>
 
@@ -124,5 +195,4 @@ const getGeneros = async () => {
         </>
     );
 }
-
 export default CadastroGenero;

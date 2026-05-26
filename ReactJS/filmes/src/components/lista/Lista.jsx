@@ -45,8 +45,7 @@ const Lista = (props) => {
                                         </td>
                                         <td data-cell="Editar">
                                             <button className="icon" onClick={() => {
-                                                props.setValor(valor)
-                                                setEditar(true)
+                                                props.funcEditar(item)
                                             }
                                             }>
                                                 <img src={Editar} alt="Caneta" />

@@ -39,12 +39,16 @@ const Cadastro = (props) => {
                             <option value="op3">op 3</option>
                         </select>
                     </div>
-
+                    
+                    
+                    {props.btnEditar && <Botao nomeDoBotao="Cancelar"
+                    cancelarEdicao={props.cancelarEdicao}
+                    btnEditar={props.btnEditar}
+                    />}
                     <Botao nomeDoBotao="Cadastrar" />
                 </div>
             </form>
         </section>
     )
 }
-
 export default Cadastro;
