@@ -74,8 +74,8 @@ const excluirGenero = async (item) => {
         confirmButtonText: 'Sim',
         cancelButtonText: 'Não',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#85f085ff',
+        cancelButtonColor: '#ff6666ff',
         });
     if (!result.isConfirmed) {
         return;

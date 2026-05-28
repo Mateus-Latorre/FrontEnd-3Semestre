@@ -1,13 +1,18 @@
 import "./CadastroFilme.css";
 import Header from "../../components/header/Header";
 import Fotter from "../../components/footer/Footer";
+import Cadastro from "../../components/cadastro/Cadastro";
+import Lista from "../../components/lista/Lista";
 const CadastroFilme = () => {
     return (
-        <div className="container">
+        <>
             <Header />
-            <h1>Cadastro de Filme</h1>
+            <main>
+                <Cadastro/>
+                <Lista/>
+            </main>
             <Fotter />
-        </div>
+        </>
     );
 }
 
