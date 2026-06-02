@@ -34,16 +34,30 @@ const Cadastro = (props) => {
                             <option value="" disabled>
                                 Selecione
                             </option>
-                            <option value="op1">op 1</option>
-                            <option value="op2">op 2</option>
-                            <option value="op3">op 3</option>
+                            {props.listaGeneros?.map((item) => (
+                                <option key={item.idGenero} value={item.idGenero}>
+                                    {item.nome}
+                                </option>
+                            ))}
                         </select>
                     </div>
-                    
-                    
+                    <div className="campo_cad_img" style={{ display: props.visibilidade }}>
+                        <label htmlFor="img">Imagem</label>
+                        <label htmlFor="img" className="custom-file-upload">
+                            Escolher imagem
+                        </label>
+
+                        <input
+                            type="file"
+                            name="img"
+                            id="img"
+                            accept="image/*"
+                            onChange={(e) => props.setImg(e.target.files[0])}
+                        />
+                    </div>
                     {props.btnEditar && <Botao nomeDoBotao="Cancelar"
-                    cancelarEdicao={props.cancelarEdicao}
-                    btnEditar={props.btnEditar}
+                        cancelarEdicao={props.cancelarEdicao}
+                        btnEditar={props.btnEditar}
                     />}
                     <Botao nomeDoBotao="Cadastrar" />
                 </div>

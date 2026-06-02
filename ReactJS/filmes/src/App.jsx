@@ -5,9 +5,7 @@ import CadastroFilme from './pages/cadastroFilme/CadastroFilme'
 import CadastroGenero from './pages/cadastroGenero/CadastroGenero'
 import Rotas from './routes/routes'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App() {  
   return (
     <>
      <Rotas />
