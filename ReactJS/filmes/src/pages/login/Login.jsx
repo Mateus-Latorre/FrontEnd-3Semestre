@@ -1,3 +1,5 @@
+//Scaffold-Dbcontext "Server=(localdb)\MSSQLLocalDB;Database=HeroiAPI;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir BdContextHeroi -Context HeroiContext -DataAnnotations
+
 import "./Login.css";
 import Logo from "../../assets/img/logo.svg";
 import Botao from "../../components/botao/Botao";
@@ -33,7 +35,7 @@ const Login = () => {
                 <div className="campos_login">
                     <div className="campo_input">
                         <label htmlFor="email">Email:</label>
-                        <input value={novoEmail} onChange={(e) => {setNovoEmail(e.target.value)}} type="email" name="email" placeholder="Digite seu e-mail"/>
+                        <input   type="email" name="email" placeholder="Digite seu e-mail"/>
                     </div>
                     <div className="campo_input">
                         <label htmlFor="senha">Senha:</label>

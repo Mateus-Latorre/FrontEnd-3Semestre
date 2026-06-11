@@ -69,3 +69,4 @@ export const CadastroProduto = () => {
     </div>
   );
 };
+export default CadastroProduto;

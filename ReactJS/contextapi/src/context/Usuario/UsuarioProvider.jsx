@@ -1,8 +1,12 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UsuarioContext } from "./UsuarioContext"
 
 export const UsuarioProvider = ({children}) => {
-    const [usuario, setUsuario] = useState("Mateus")
+    const [usuario, setUsuario] = useState(null)
+    useEffect(() => {
+        const usuarioLogado = JSON.parse(localStorage.getItem("usuario"))
+        setUsuario(usuarioLogado)   
+    }, [])
     return (
         <UsuarioContext.Provider
          value={{ 

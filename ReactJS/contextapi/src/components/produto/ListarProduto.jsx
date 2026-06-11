@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ProdutoContext } from "../../context/Produtos/ProdutoContext";
 import "./CadastroProduto.css";
 
-export const ListarProduto = () => {
+const ListarProduto = () => {
   const { produtos } = useContext(ProdutoContext);
   return (
     <div className="lista-card">
@@ -22,3 +22,4 @@ export const ListarProduto = () => {
     </div>
   );
 };
+export default ListarProduto;
