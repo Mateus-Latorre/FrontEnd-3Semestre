@@ -1,30 +1,26 @@
 import "./Cadastro.css";
 import Botao from "../botao/Botao";
 
-// Destructuring nas props:
-// const Cadastro = ({ 
-//     cadastro, tituloCadastro, valor, setValor, estilo, 
-//     valorSelect, setValorSelect, listaGeneros 
-//   }) => {}
-
-
 const Cadastro = (props) => {
     return (
         <section className="section_cadastro">
             <form onSubmit={props.funcCadastro} className="layout_grid form_cadastro">
                 <h1>{props.tituloCadastro}</h1>
                 <hr />
+
                 <div className="campos_cadastro">
                     <div className="campo_cad_nome">
                         <label htmlFor="nome">Nome</label>
-                        <input type="text" name="nome" placeholder={`Digite o nome do ${props.placeholder}`}
-                            //O valor do input vem de props (estado do componente pai)
+                        <input
+                            type="text"
+                            name="nome"
+                            placeholder={`Digite o nome do ${props.placeholder}`}
                             value={props.valor}
-                            // Atualiza o estado do pai ao digitar
                             onChange={(e) => props.setValor(e.target.value)}
                         />
                     </div>
-                    <div className="campo_cad_genero" style={{ display: props.visibilidade }}>
+
+                    <div className="campo_cad_genero">
                         <label htmlFor="genero">Gênero</label>
                         <select
                             name="genero"
@@ -34,6 +30,7 @@ const Cadastro = (props) => {
                             <option value="" disabled>
                                 Selecione
                             </option>
+
                             {props.listaGeneros?.map((item) => (
                                 <option key={item.idGenero} value={item.idGenero}>
                                     {item.nome}
@@ -41,8 +38,10 @@ const Cadastro = (props) => {
                             ))}
                         </select>
                     </div>
-                    <div className="campo_cad_img" style={{ display: props.visibilidade }}>
+
+                    <div className="campo_cad_img">
                         <label htmlFor="img">Imagem</label>
+
                         <label htmlFor="img" className="custom-file-upload">
                             Escolher imagem
                         </label>
@@ -55,14 +54,23 @@ const Cadastro = (props) => {
                             onChange={(e) => props.setImg(e.target.files[0])}
                         />
                     </div>
-                    {props.btnEditar && <Botao nomeDoBotao="Cancelar"
-                        cancelarEdicao={props.cancelarEdicao}
-                        btnEditar={props.btnEditar}
-                    />}
-                    <Botao nomeDoBotao="Cadastrar" />
+
+                    {props.Editar && (
+                        <Botao
+                            nomeDoBotao="Cancelar"
+                            type="button"
+                            onClick={props.cancelarEdicao}
+                        />
+                    )}
+
+                    <Botao
+                        nomeDoBotao={props.Editar ? "Salvar" : "Cadastrar"}
+                        type="submit"
+                    />
                 </div>
             </form>
         </section>
-    )
-}
+    );
+};
+
 export default Cadastro;
